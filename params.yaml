@@ -1,0 +1,20 @@
+email:
+  sender_email: {add your email}
+  sender_email_pw: {add your password}
+
+reddit:
+  secret: {add your reddit secret}
+  me: {add your reddit ID}
+  user: {add your reddit user}
+
+contacts:
+  - {add recipient number 1}
+  - {add recipient number 2 (or more)}
+
+timed_messages:
+  "07:00": Good morning!
+  "17:45": Dinner time duck!
+  "22:30": Good night duck
+
+general:
+  sleep_time_seconds: 60
