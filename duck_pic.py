@@ -96,9 +96,8 @@ def send_messages(message_to_send: str, save_loc: str, testing: bool) -> None:
     server.starttls()
     server.login(sender_email, sender_email_pw)
     if testing:
-        server.sendmail(sender_email, contacts[:1], msg.as_string())
-    else:
-        server.sendmail(sender_email, contacts, msg.as_string())
+        contacts = contacts[:1]
+    server.sendmail(sender_email, contacts, msg.as_string())
     server.quit()
 
 
@@ -108,12 +107,12 @@ def load_params(file="params.yaml") -> Dict[str, Any]:
     return params
 
 
-def run_schedule(tesing: bool = False) -> None:
+def run_schedule(testing: bool = False) -> None:
     """
     Run the scheduled duck texts
-    tesing: set to True to send image right away
+    testing: set to True to send image to first contact right away
     """
-    if tesing:
+    if testing:
         run(message_to_send="testing", testing=True)
     else:
         params = load_params()
@@ -129,4 +128,4 @@ def run_schedule(tesing: bool = False) -> None:
 
 if __name__ == "__main__":
     print("Duck pic comin soon!")
-    run_schedule(tesing=False)
+    run_schedule(testing=False)
