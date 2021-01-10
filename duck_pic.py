@@ -82,6 +82,7 @@ def send_messages(message_to_send: str, save_loc: str, testing: bool) -> None:
 
     if testing:
         msg["To"] = contacts[0]
+        contacts = contacts[:1]
     else:
         msg["To"] = ", ".join(contacts)
     msg["From"] = sender_email
@@ -95,8 +96,6 @@ def send_messages(message_to_send: str, save_loc: str, testing: bool) -> None:
     server = smtplib.SMTP("smtp.gmail.com", 587)
     server.starttls()
     server.login(sender_email, sender_email_pw)
-    if testing:
-        contacts = contacts[:1]
     server.sendmail(sender_email, contacts, msg.as_string())
     server.quit()
 
