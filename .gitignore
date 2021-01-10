@@ -1,4 +1,5 @@
 duck.jpg
+params.yaml
 .mypy_cache
 .idea/
 log.pkl

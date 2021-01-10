@@ -14,7 +14,7 @@ import yaml
 from PIL import Image
 
 
-def run(message_to_send: str, save_loc: str = "duck.jpg", testing=False) -> None:
+def run(message_to_send: str, save_loc: str = "duck.jpg", testing: bool = False) -> None:
     """
     Download top duck posts from reddit and send on schedule as defined in params.yaml
     """
@@ -108,12 +108,12 @@ def load_params(file="params.yaml") -> Dict[str, Any]:
     return params
 
 
-def run_schedule(test_mode: bool = False) -> None:
+def run_schedule(tesing: bool = False) -> None:
     """
     Run the scheduled duck texts
-    test_mode: set to True to send image right away
+    tesing: set to True to send image right away
     """
-    if test_mode:
+    if tesing:
         run(message_to_send="testing", testing=True)
     else:
         params = load_params()
@@ -129,4 +129,4 @@ def run_schedule(test_mode: bool = False) -> None:
 
 if __name__ == "__main__":
     print("Duck pic comin soon!")
-    run_schedule(test_mode=False)
+    run_schedule(tesing=False)
